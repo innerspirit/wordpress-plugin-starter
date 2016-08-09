@@ -1,0 +1,30 @@
+{
+    "name": "wordpress-plugin-starter",
+    "version": "0.0.1",
+    "description": "a simple starter for building wordpress plugins",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "echo 'yoman'"
+    },
+    "keywords": [
+        "wordpress",
+        "wp",
+        "plugin",
+        "starter"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/codekraft-studio/wordpress-plugin-starter.git"
+    },
+    "author": "codekraft-studio",
+    "license": "ISC",
+    "devDependencies": {
+        "grunt": "^1.0.1",
+        "grunt-contrib-jshint": "^1.0.0",
+        "grunt-contrib-sass": "^1.0.0",
+        "grunt-contrib-uglify": "^2.0.0",
+        "grunt-contrib-watch": "^1.0.0",
+        "grunt-wp-i18n": "^0.5.4"
+    }
+}
