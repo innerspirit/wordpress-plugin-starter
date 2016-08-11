@@ -21,11 +21,10 @@
  *
  */
 
+define( "WPS_FILE", __FILE__ );
+define( "WPS_DIRECTORY", dirname(__FILE__) );
+define( "WPS_DIRECTORY_BASENAME", plugin_basename( WPS_FILE ) );
+define( "WPS_DIRECTORY_PATH", plugin_dir_path( WPS_FILE ) );
+define( "WPS_DIRECTORY_URL", plugins_url( null, WPS_FILE ) );
 
-define( "WORDPRESS_PLUGIN_STARTER_FILE", __FILE__ );
-define( "WORDPRESS_PLUGIN_STARTER_DIRECTORY", dirname(__FILE__) );
-define( "WORDPRESS_PLUGIN_STARTER_DIRECTORY_BASENAME", plugin_basename( WORDPRESS_PLUGIN_STARTER_FILE ) );
-define( "WORDPRESS_PLUGIN_STARTER_DIRECTORY_PATH", plugin_dir_path( WORDPRESS_PLUGIN_STARTER_FILE ) );
-define( "WORDPRESS_PLUGIN_STARTER_DIRECTORY_URL", plugins_url( null, WORDPRESS_PLUGIN_STARTER_FILE ) );
-
-require_once( WORDPRESS_PLUGIN_STARTER_DIRECTORY . 'include/main-class.php' );
+require_once( WPS_DIRECTORY . '/include/main-class.php' );
