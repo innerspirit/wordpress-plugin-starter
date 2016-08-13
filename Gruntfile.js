@@ -19,7 +19,8 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: 'assets/src/js',
                     src: '**/*.js',
-                    dest: 'assets/dist/js'
+                    dest: 'assets/dist/js',
+                    ext: '.min.js'
                 }]
             }
         },
@@ -69,9 +70,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks( 'grunt-wp-i18n' );
+    grunt.loadNpmTasks('grunt-wp-i18n');
 
     // register build task
-    grunt.registerTask('build', ['jshint', 'uglify', 'sass']);
+    grunt.registerTask('build', ['jshint', 'uglify', 'sass', 'makepot']);
 
 };
