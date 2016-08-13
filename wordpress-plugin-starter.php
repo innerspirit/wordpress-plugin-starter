@@ -6,7 +6,7 @@
  * @package     WordPress Plugin Starter
  * @author      codekraft-studio
  * @copyright   2016 codekraft-studio
- * @license     ISC
+ * @license     GPL-2.0+
  *
  * @wordpress-plugin
  * Plugin Name: WordPress Plugin Starter
