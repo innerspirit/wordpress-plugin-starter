@@ -1,8 +1,10 @@
+var path = require('path');
+
 module.exports = function(grunt) {
 
-    grunt.initConfig({
+    var project_name = path.basename(__dirname);
 
-        pkg: grunt.file.readJSON('package.json'),
+    grunt.initConfig({
 
         jshint: {
             files: ['Gruntfile.js', 'assets/src/js/**/*.js'],
@@ -53,11 +55,24 @@ module.exports = function(grunt) {
             }
         },
 
+        addtextdomain: {
+            options: {
+                i18nToolsPath: '',
+                textdomain: project_name,
+                updateDomains: []
+            },
+            target: {
+                files: {
+                    src: [ 'include/**/*.php' ]
+                }
+            }
+        },
+
         makepot: {
             target: {
                 options: {
                     type: 'wp-plugin',
-                    mainFile: '<%= pkg.name %>.php',
+                    mainFile: project_name + '.php',
                     domainPath: '/languages'
                 }
             }
@@ -72,6 +87,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-wp-i18n');
 
+    // register watch task
+    grunt.registerTask('default', ['watch']);
     // register build task
     grunt.registerTask('build', ['jshint', 'uglify', 'sass', 'makepot']);
 
