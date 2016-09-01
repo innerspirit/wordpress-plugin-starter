@@ -13,6 +13,7 @@ There are few steps to follow in order to start:
 * Change the **folder name** in order to match your `{your-project}`
 * Change `wordpress-plugin-starter.php` to `{your-project}.php`
 * Open `{your-project}.php` and change the Text Domain to `{your-project}`
++ Type `npm install && npm run start`
 
 Then you are ready to go!
 
