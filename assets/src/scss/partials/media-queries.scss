@@ -1,0 +1,45 @@
+/**
+ * Sass-Ready media queries
+ * Here there are some presets of useful
+ * media queries breakpoints for various devices
+ * Usage: @media #{variable-name} { }
+ * and it will compile to: @media screen width and height { }
+ *
+ */
+
+$desktops-laptops: "only screen and (min-width : 1224px)";
+$large-screens: "only screen and (min-width : 1824px)";
+$ipads-both: "only screen and (min-device-width : 768px) and (max-device-width : 1024px)";
+$ipads-landscape: "only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)";
+$ipads-portrait: "only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait)";
+$iphone-4: "only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5)";
+$smartphones-both: "only screen and (min-device-width : 320px) and (max-device-width : 480px)";
+$smartphones-landscape: "only screen and (min-width : 321px)";
+$smartphones-portrait: "only screen and (max-width : 320px)";
+
+/* Desktops and laptops ----------- */
+@media #{$desktops-laptops} { /* Styles */ }
+
+/* Large screens ----------- */
+@media #{$large-screens} { /* Styles */ }
+
+/* iPads (portrait and landscape) ----------- */
+@media #{$ipads-both} { /* Styles */ }
+
+/* iPads (landscape) ----------- */
+@media #{$ipads-landscape} { /* Styles */ }
+
+/* iPads (portrait) ----------- */
+@media #{$ipads-portrait} { /* Styles */ }
+
+/* iPhone 4 ----------- */
+@media #{$iphone-4} { /* Styles */ }
+
+/* Smartphones (portrait and landscape) ----------- */
+@media #{$smartphones-both} { /* Styles */ }
+
+/* Smartphones (landscape) ----------- */
+@media #{$smartphones-landscape} { /* Styles */ }
+
+/* Smartphones (portrait) ----------- */
+@media #{$smartphones-portrait} { /* Styles */ }
