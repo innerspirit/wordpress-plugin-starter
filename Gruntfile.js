@@ -34,7 +34,7 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: 'assets/src/scss',
+                    cwd: 'assets/src/scss/main',
                     src: ['**/*.scss'],
                     dest: 'assets/dist/css',
                     ext: '.css'
@@ -59,7 +59,7 @@ module.exports = function(grunt) {
             options: {
                 i18nToolsPath: '',
                 textdomain: project_name,
-                updateDomains: []
+                updateDomains: ['wordpress-plugin-starter']
             },
             target: {
                 files: {
