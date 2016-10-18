@@ -2,9 +2,9 @@ var path = require('path');
 
 module.exports = function(grunt) {
 
-    var project_name = path.basename(__dirname);
-
     grunt.initConfig({
+
+        pkg: grunt.file.readJSON('package.json'),
 
         jshint: {
             files: ['Gruntfile.js', 'assets/src/js/**/*.js'],
@@ -16,6 +16,15 @@ module.exports = function(grunt) {
         },
 
         uglify: {
+            options: {
+                banner: '/**\n' +
+                        '* Package: <%= pkg.name %> - v<%= pkg.version %> \n' +
+                        '* Description: <%= pkg.description %> \n' +
+        				'* Last build: <%= grunt.template.today("yyyy-mm-dd") %> \n' +
+						'* @author <%= pkg.author %> \n' +
+						'* @license <%= pkg.license %> \n'+
+                        '*/\n'
+            },
             target: {
                 files: [{
                     expand: true,
@@ -55,24 +64,24 @@ module.exports = function(grunt) {
             }
         },
 
-        addtextdomain: {
-            options: {
-                i18nToolsPath: '',
-                textdomain: project_name,
-                updateDomains: ['wordpress-plugin-starter']
-            },
-            target: {
-                files: {
-                    src: [ 'include/**/*.php' ]
-                }
-            }
-        },
+        // addtextdomain: {
+        //     options: {
+        //         i18nToolsPath: 'tools/i18n/',
+        //         textdomain: '<%= pkg.name %>',
+        //         updateDomains: ['wordpress-plugin-starter']
+        //     },
+        //     target: {
+        //         files: {
+        //             src: [ 'include/**/*.php' ]
+        //         }
+        //     }
+        // },
 
         makepot: {
             target: {
                 options: {
                     type: 'wp-plugin',
-                    mainFile: project_name + '.php',
+                    mainFile: '<%= pkg.name %>.php',
                     domainPath: '/languages'
                 }
             }
