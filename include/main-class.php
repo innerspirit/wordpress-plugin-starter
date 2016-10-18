@@ -51,35 +51,13 @@ class WordPress_Plugin_Starter {
     function plugin_admin_menu_function() {
 
         //create main top-level menu with empty content
-        add_menu_page(
-            __('WordPress Plugin Starter', WPS_TEXT_DOMAIN), // (string) (Required) The text to be displayed in the title tags of the page when the menu is selected
-            __('Plugin Starter', WPS_TEXT_DOMAIN), // (string) (Required) The text to be used for the menu.
-            'administrator', // (string) (Required) The capability required for this menu to be displayed to the user.
-            'wps-general', // (string) (Required) The slug name to refer to this menu by (should be unique for this menu).
-            null, // (callable) (Optional) The function to be called to output the content for this page.
-            'dashicons-admin-generic', // (string) (Optional) The URL to the icon to be used for this menu.
-            4 // (int) (Optional) The position in the menu order this one should appear.
-        );
+        add_menu_page( __('WordPress Plugin Starter', WPS_TEXT_DOMAIN), __('Plugin Starter', WPS_TEXT_DOMAIN), 'administrator', 'wps-general', null, 'dashicons-admin-generic', 4 );
 
         // create top level submenu page which point to main menu page
-        add_submenu_page(
-            'wps-general', // (string) (Required) The slug name for the parent menu (or the file name of a standard WordPress admin page).
-            __('General', WPS_TEXT_DOMAIN), // (string) (Required) The text to be displayed in the title tags of the page when the menu is selected.
-            __('General', WPS_TEXT_DOMAIN),
-            'manage_options', // (string) (Required) The capability required for this menu to be displayed to the user.
-            'wps-general', // (string) (Required) The slug name to refer to this menu by (should be unique for this menu).
-            array($this, 'plugin_settings_page') // (callable) (Optional) The function to be called to output the content for this page.
-        );
+        add_submenu_page( 'wps-general', __('General', WPS_TEXT_DOMAIN), __('General', WPS_TEXT_DOMAIN), 'manage_options', 'wps-general', array($this, 'plugin_settings_page') );
 
         // add the support page
-        add_submenu_page(
-            'wps-general',
-            __('Plugin Support Page', WPS_TEXT_DOMAIN),
-            __('Support', WPS_TEXT_DOMAIN),
-            'manage_options',
-            'wps-support',
-            array($this, 'plugin_support_page')
-        );
+        add_submenu_page( 'wps-general', __('Plugin Support Page', WPS_TEXT_DOMAIN), __('Support', WPS_TEXT_DOMAIN), 'manage_options', 'wps-support', array($this, 'plugin_support_page') );
 
     	//call register settings function
     	add_action( 'admin_init', array($this, 'plugin_register_settings') );
